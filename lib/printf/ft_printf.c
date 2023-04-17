@@ -18,12 +18,14 @@ void	ft_check_type(int const c, va_list *lst)
 {
 	if (c == 's')
 		ft_printf_str(va_arg(*lst, char *));
-	if (c == 'p' || c == 'x' || c == 'X')
+	else if (c == 'p' || c == 'x' || c == 'X')
 		ft_printf_base16(va_arg(*lst, unsigned long long), c);
-	if (c == 'd' || c == 'i')
+	else if (c == 'd' || c == 'i')
 		ft_printf_base10(va_arg(*lst, int), c);
-	if (c == 'u')
+	else if (c == 'u')
 		ft_printf_base10(va_arg(*lst, unsigned int), 'u');
+	else
+		write(1, &c, 1);
 }
 
 int	ft_printf(const char *s, ...)
