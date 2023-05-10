@@ -12,35 +12,43 @@
 
 NAME = libftprintf.a
 
-SRCS_DIR = lib/
+LIBFT_DIR	=	libft
 
-#------------------------ DIR ------------------------------
+OBJS_DIR	=	output
 
-LIBFT_DIR 	=	libft/
-PRINTF_DIR	=	printf/
+SRCS	=	ft_printf.c \
+			ft_convert_c.c \
+			ft_convert_d.c \
+			ft_convert_p.c \
+			ft_convert_s.c \
+			ft_convert_x.c \
+			ft_flags.c \
+			ft_len.c
 
-#------------------------ PATH ------------------------------
+OBJS	=	$(SRCS:.c=.o)
 
-LIBFT_PATH	=	lib/libft/
-PRINTF_PATH	=	lib/printf/
-
-#----------------------- COMMAND ----------------------------
+FLAGS	=	-Wall -Wextra -Werror -I./
 
 $(NAME):
-		make -C $(LIBFT_PATH)
-		make -C $(PRINTF_PATH)
+		gcc $(FLAGS) -c $(SRCS)
+		mkdir -p $(OBJS_DIR)
+		mv $(OBJS) $(OBJS_DIR)
+		ar rc $(NAME) $(addprefix $(OBJS_DIR)/, $(OBJS))
 
-all: $(NAME)
+$(OBJS):
+		mkdir -p $(OBJS_DIR)
+		mv $(OBJS) $(OBJS_DIR)
+
+all :	$(NAME)
+
+bonus:	all
 
 clean:
-		make clean -C $(LIBFT_PATH)
-		make clean -C $(PRINTF_PATH)
+		rm -rf $(OBJS_DIR)
 
 fclean: clean
-		rm -f $(LIBFT_PATH)libft.a
-		rm -f $(PRINTF_PATH)printf.a
 		rm -f $(NAME)
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re bonus
