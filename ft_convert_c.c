@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-int	ft_convert_c(char c, t_flags *flags)
+int	ft_convert_c(int c, t_flags *flags)
 {
 	if (flags->left)
 		return (ft_printf_char(c) + ft_printf_flags_c(flags));
@@ -29,7 +29,7 @@ int	ft_printf_flags_c(t_flags *flags)
 	return (len);
 }
 
-int	ft_printf_char(char c)
+int	ft_printf_char(int c)
 {
 	return (write(1, &c, 1));
 }

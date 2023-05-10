@@ -38,9 +38,9 @@ unsigned long	ft_strlen(const char *str);
 int				ft_llonglen(long long num);
 int				ft_baselen(unsigned long long num, unsigned int base);
 
-int				ft_convert_c(char c, t_flags *flags);
+int				ft_convert_c(int c, t_flags *flags);
 int				ft_printf_flags_c(t_flags *flags);
-int				ft_printf_char(char c);
+int				ft_printf_char(int c);
 
 int				ft_convert_d(long num, t_flags *flags);
 int				ft_printf_flags_d(t_flags *flags);

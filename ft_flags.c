@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-int ft_istype(char c)
+int	ft_istype(char c)
 {
 	if (c == 'c' || c == 's' || c == 'd' || c == 'i' || c == 'u' || c == 'p'
 		|| c == 'x' || c == 'X' || c == 'f' || c == 's' || c == '%')
@@ -20,7 +20,7 @@ int ft_istype(char c)
 	return (0);
 }
 
-void ft_set_flags(t_flags *flags)
+void	ft_set_flags(t_flags *flags)
 {
 	flags->left = 0;
 	flags->space = 0;
@@ -44,7 +44,7 @@ const char	*ft_flags(const char *s, t_flags *flags)
 		else if (*s == ' ')
 			flags->space = 1;
 		else
-			break;
+			break ;
 		s++;
 	}
 	s = ft_flags_atoi(s, &(flags->width));
@@ -60,7 +60,7 @@ const char	*ft_flags(const char *s, t_flags *flags)
 
 const char	*ft_flags_atoi(const char *s, int *num)
 {
-	int n;
+	int	n;
 
 	n = 0;
 	while (*s >= '0' && *s <= '9')

@@ -32,7 +32,7 @@ int	ft_convert_x(int c, unsigned long long num, t_flags *flags)
 
 int	ft_printf_x(int c, unsigned long long num, t_flags *flags)
 {
-	int len;
+	int	len;
 
 	len = 0;
 	if (flags->left)
@@ -57,7 +57,7 @@ int	ft_printf_flags_x(t_flags *flags)
 
 int	ft_printf_arg_x(int c, unsigned long long num, t_flags *flags)
 {
-	int len;
+	int	len;
 	int	i;
 
 	len = 0;
@@ -83,7 +83,7 @@ int	ft_printf_base16(unsigned long long n, int c, int i)
 		return (i);
 	}
 	i = ft_printf_base16(n / 16, c, i + 1);
-	if  (c == 'X')
+	if (c == 'X')
 		write(1, &"0123456789ABCDEF"[n % 16], 1);
 	else
 		write(1, &"0123456789abcdef"[n % 16], 1);

@@ -14,7 +14,7 @@
 
 int	ft_convert_d(long num, t_flags *flags)
 {
-	int lenarg;
+	int	lenarg;
 
 	lenarg = ft_llonglen(num);
 	if (flags->point != -1)
@@ -60,7 +60,7 @@ int	ft_printf_flags_d(t_flags *flags)
 
 int	ft_printf_arg_d(long num, int lenarg, t_flags *flags)
 {
-	int len;
+	int	len;
 	int	i;
 
 	len = 0;

@@ -21,7 +21,7 @@ int	ft_convert_s(char const *str, t_flags *flags)
 			flags->point = 6;
 			if (flags->left)
 				return (write(1, "(null)", 6) + ft_printf_flags_s(flags));
-			return (ft_printf_flags_s(flags) +write(1, "(null)", 6));
+			return (ft_printf_flags_s(flags) + write(1, "(null)", 6));
 		}
 		return (0);
 	}

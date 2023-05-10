@@ -37,7 +37,7 @@ int	ft_baselen(unsigned long long num, unsigned int base)
 	return (len);
 }
 
-int ft_llonglen(long long num)
+int	ft_llonglen(long long num)
 {
 	if (num < 0)
 		return (1 + ft_baselen(-num, 10));

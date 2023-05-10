@@ -32,15 +32,15 @@ int	ft_convert(char const c, t_flags *flags, va_list *lst)
 	return (len);
 }
 
-int ft_printf(const char *s, ...)
+int	ft_printf(const char *s, ...)
 {
-	va_list lst;
+	va_list	lst;
 	t_flags	flags;
-	int len;
+	int		len;
 
 	va_start(lst, s);
 	len = 0;
-	while(*s)
+	while (*s)
 	{
 		if (*s == '%')
 		{
