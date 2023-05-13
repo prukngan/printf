@@ -44,7 +44,7 @@ int	ft_printf(const char *s, ...)
 	{
 		if (*s == '%')
 		{
-			s = ft_flags(s + 1, &flags);
+			s = ft_flags(s + 1, &lst, &flags);
 			if (*s == '%')
 				len += ft_printf_char('%');
 			else

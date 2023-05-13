@@ -28,6 +28,8 @@ int	ft_convert_d(long num, t_flags *flags)
 	else if (flags->point == -1)
 	{
 		flags->point = 0;
+		if (flags->left && flags->blank == '0')
+			flags->blank = ' ';
 		if (num < 0 && flags->blank == '0')
 			flags->point = flags->width;
 	}

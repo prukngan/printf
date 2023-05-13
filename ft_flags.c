@@ -28,9 +28,10 @@ void	ft_set_flags(t_flags *flags)
 	flags->blank = ' ';
 	flags->before = 0;
 	flags->point = -1;
+	flags->star = 0;
 }
 
-const char	*ft_flags(const char *s, t_flags *flags)
+const char	*ft_flags(const char *s, va_list *lst, t_flags *flags)
 {
 	ft_set_flags(flags);
 	while (*s && !ft_istype(*s))
@@ -47,15 +48,36 @@ const char	*ft_flags(const char *s, t_flags *flags)
 			break ;
 		s++;
 	}
-	s = ft_flags_atoi(s, &(flags->width));
-	if (*s == '.')
-	{
-		s++;
-		s = ft_flags_atoi(s, &(flags->point));
-	}
+	while (*s && !ft_istype(*s))
+		s = ft_flags_star(s, lst, flags);
 	if (ft_istype(*s))
 		return (s);
 	return (0);
+}
+
+const char	*ft_flags_star(const char *s, va_list *lst, t_flags *flags)
+{
+	if (*s == '.')
+	{
+		s++;
+		if (*s != '*')
+			return (ft_flags_atoi(s, &(flags->point)));
+		flags->point = va_arg(*lst, int);
+		if (flags->point < 0)
+			flags->point = -1;
+	}
+	else
+	{
+		if (*s != '*')
+			return (ft_flags_atoi(s, &(flags->width)));
+		flags->width = va_arg(*lst, int);
+		if (flags->width < 0)
+		{
+			flags->width *= -1;
+			flags->left = 1;
+		}
+	}
+	return (s + 1);
 }
 
 const char	*ft_flags_atoi(const char *s, int *num)

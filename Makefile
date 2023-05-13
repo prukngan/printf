@@ -12,8 +12,6 @@
 
 NAME = libftprintf.a
 
-LIBFT_DIR	=	libft
-
 OBJS_DIR	=	output
 
 SRCS	=	ft_printf.c \

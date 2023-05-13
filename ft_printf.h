@@ -24,13 +24,15 @@ typedef struct s_flags
 	int				width;
 	char			blank;
 	char			before;
+	int				star;
 }	t_flags;
 
 int				ft_printf(char const *s, ...);
 int				ft_convert(char const c, t_flags *flags, va_list *lst);
 
-const char		*ft_flags(const char *s, t_flags *flags);
+const char		*ft_flags(const char *s, va_list *lst, t_flags *flags);
 void			ft_set_flags(t_flags *flags);
+const char		*ft_flags_star(const char *s, va_list *lst, t_flags *flags);
 const char		*ft_flags_atoi(const char *s, int *num);
 int				ft_istype(char c);
 
